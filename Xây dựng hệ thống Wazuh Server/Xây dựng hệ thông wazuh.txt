@@ -1,0 +1,14 @@
+##########################
+
+sudo apt update
+sudo apt install vim curl apt-transport-https unzip wget libcap2-bin software-properties-common lsb-release gnupg2
+//Tải các curl download wazuh server
+curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh
+sudo bash ./wazuh-install.sh -a -i
+
+// Wazuh server sẽ trả về User và Password để đăng nhập vào dashboard
+// Nhập lệnh để check ip của wazuh server
+ip a
+
+// Đăng nhập vào Dashboad: https://<wazuh-dashboard-ip>:443
+
