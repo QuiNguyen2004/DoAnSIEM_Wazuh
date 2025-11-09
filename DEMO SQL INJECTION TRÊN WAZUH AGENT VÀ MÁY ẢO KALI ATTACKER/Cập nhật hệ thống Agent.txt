@@ -1,0 +1,9 @@
+Bước 1: Cập nhật hệ thống và cài đặt các gói cần thiết cho một máy chủ web LAMP (Linux - Apache - MariaDB – PHP). 
+sudo apt update && sudo apt install apache2 
+sudo systemctl start apache2 mariadb 
+Bước 2: Tạo một database mariadb 
+CREATE DATABASE dvwa;
+CREATE USER 'dvwa'@'localhost' IDENTIFIED BY 'dvwapass';
+GRANT ALL PRIVILEGES ON dvwa.* TO 'dvwa'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;

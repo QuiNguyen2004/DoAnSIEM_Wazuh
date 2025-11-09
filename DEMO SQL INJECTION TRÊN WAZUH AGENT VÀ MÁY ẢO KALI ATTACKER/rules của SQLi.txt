@@ -1,0 +1,13 @@
+###############
+
+</group>
+ <group name="local_SQLI">
+   <rule id="100001" level="10">
+     <decoded_as>web-accesslog</decoded_as>
+     <field name="url">SELECT</field>
+     <description>Custom SQL Injection detected</description>
+     <group>web,sql_injection,attack</group>
+     <mail>yes</mail>
+   </rule>
+ </group>
+
