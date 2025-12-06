@@ -1,0 +1,35 @@
+<group name="misp,threat_intel,">
+  <rule id="100200" level="3">
+    <decoded_as>json</decoded_as>
+    <field name="integration">custom-misp</field>
+    <description>MISP: Received response from MISP server</description>
+    <options>no_full_log</options>
+  </rule>
+
+  <rule id="100201" level="13">
+    <if_sid>100200</if_sid>
+    <field name="misp_detection.type">md5|sha1|sha256</field>
+    <description>MISP: Malicious File Detected (Hash Match) - $(misp_detection.value)</description>
+    <mitre>
+      <id>T1204</id> <id>T1059</id> </mitre>
+    <group>malware,misp_file,</group>
+  </rule>
+
+  <rule id="100202" level="10">
+    <if_sid>100200</if_sid>
+    <field name="misp_detection.type">ip-src|ip-dst|domain|hostname</field>
+    <description>MISP: Malicious Network Activity Detected - $(misp_detection.value)</description>
+    <mitre>
+      <id>T1071</id> <id>T1190</id> </mitre>
+    <group>network_attack,misp_net,</group>
+  </rule>
+
+  <rule id="100203" level="14">
+    <if_sid>100200</if_sid>
+    <field name="misp_detection.category">Payload delivery|Artifacts dropped</field>
+    <description>MISP: CRITICAL - Malware Payload Delivery Detected</description>
+    <mitre>
+      <id>T1105</id> </mitre>
+  </rule>
+
+</group>

@@ -1,3 +1,0 @@
-//ip của Agent
-
-curl -XGET "http://192.168.159.150/users?id=SELECT+*+FROM+users";
